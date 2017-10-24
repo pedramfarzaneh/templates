@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../Chapter9/bootstrap.css" />
+    <link rel="stylesheet" href="../Chapter9/bootstrap-theme.css" />
+    <link rel="stylesheet" href="animate.min.css" />
+    <script src="../Chapter9/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/sunny/jquery-ui.min.css" />
+    <script>
+
+    $(document).ready(function () {
+        $('#jqui button').button().click(function (e) {
+            $.getJSON( "test.json", function( data ) {
+                console.log(data)
+                angular.element(angularRegion).scope().$apply('dataSource = data;');
+            });
+
+        });
+
+
+    });
+    var app = angular.module("exampleApp3",[])
+        .controller("simpleCtrl",function ($scope) {
+            $scope.clickNumber = 0;
+            $scope.clickCounter = function () {
+                $scope.clickNumber = $scope.clickNumber + 1;
+            }
+        })
+    </script>
+
+    <!--<script src="controllers.js"></script>-->
+</head>
+<body  ng-app="exampleApp3">
+    <div  class="well" ng-controller="simpleCtrl">
+        <h4>AngularJS</h4>
+        <div   >
+            <button class="btn btn-danger" ng-click="clickCounter()">Click Me</button>
+        </div>
+        <p>{{clickNumber}}</p>
+    </div>
+    <div  class="well" ng-controller="simpleCtrl">
+        <h4>AngularJS</h4>
+        <div >
+            <button class="btn btn-danger" ng-click="clickCounter()">Click Me</button>
+        </div>
+        <p>{{clickNumber}}</p>
+    </div>
+</body>
+</html>

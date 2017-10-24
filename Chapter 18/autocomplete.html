@@ -1,0 +1,28 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../Chapter9/bootstrap.css" />
+    <link rel="stylesheet" href="../Chapter9/bootstrap-theme.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../Chapter9/angular.js"></script>
+    <script src="controller.js"></script>
+
+</head>
+
+<body ng-app="exampleApp" ng-init="init()">
+    <div class="well" ng-controller="defaultCtrl">
+        <div class="form-group">
+            <input type="hidden" name="" id="nameList" ng-value="data2" />
+            <label>گیرنده</label>
+            <input id="tags" class="form-control" />
+        </div>
+
+    </div>
+    <script>
+        $("#tags").autocomplete({
+            source: $('#nameList').val()
+        });
+    </script>
+
+</body>

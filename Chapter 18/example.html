@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" ng-app="exampleApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../Chapter9/bootstrap.css" />
+    <link rel="stylesheet" href="../Chapter9/bootstrap-theme.css" />
+    <link rel="stylesheet" href="animate.min.css" />
+    <script src="../Chapter9/angular.js"></script>
+
+    <script src="controller.js"></script>
+
+    <!--<script src="controllers.js"></script>-->
+</head>
+
+<body ng-controller="defaultCtrl">
+    <div class="well">
+        <div class="btn-group" tri-button source="data.cities" counter="data.totalClick">
+            <button class="btn btn-default" ng-repeat="item in data.cities">{{item}}</button>
+        </div>
+        <p ng-repeat="item in data.cities">{{item}}</p>
+    </div>
+    <a href="http://6imovie-dl.info/upload/post_tt2654620.jpg?1" download>دانلود</a>
+</body>
+
+</html>

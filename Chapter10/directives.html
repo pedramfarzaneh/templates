@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="exampleApp2">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../Chapter9/bootstrap.css" />
+    <link rel="stylesheet" href="../Chapter9/bootstrap-theme.css" />
+    <script src="../Chapter9/angular.js"></script>
+    <script>
+        angular.module("exampleApp2",[])
+            .controller("defaultCtrl",function ($scope) {
+                $scope.dataValue=false;
+                $scope.data ={};
+                $scope.todos=[
+                    {action:"Get groceries", complete:false},
+                    {action:"Call plumber", complete:false},
+                    {action:"Buy running", complete:true},
+                    {action:"Buy flower", complete:false},
+                    {action:"Call family", complete:true}
+                ];
+                $scope.data ={
+                    rowColor:"Blue",
+                    columnColor:"Green"
+                };
+                $scope.buttonNames = ["Red", "Green", "Blue"];
+                $scope.handleEvent = function (e) {
+                    console.log("Evemt type: " + e.type);
+                    $scope.data.columnColor = e.type == "mouseover" ? "Green":"Blue";
+                }
+
+                }
+            )
+            .directive("tap",function () {
+                return function (scope,elem,attrs) {
+                    elem.on("touchstart touchend",function () {
+                        scope.$apply(attrs["tap"])
+                    })
+                }
+            })
+    </script>
+    <style>
+        tr.Red { background-color: lightcoral; }
+        tr.Green { background-color: lightgreen;}
+        tr.Blue { background-color: lightblue; }
+    </style>
+</head>
+<body>
+    <div id="todoPanel" class="panel" ng-controller="defaultCtrl">
+        <h3 class="panel-heading">To Do List</h3>
+        <div class="checkbox well">
+            <label>
+                <input type="checkbox" ng-model="dataValue">
+                Set the dataValue
+            </label>
+        </div>
+        <button class="btn btn-success" ng-disabled="dataValue">Button</button>
+        <div class="well" tap="message= 'Tapped'">
+            {{message}}
+        </div>
+        <div class="row well">
+            <div>
+                <span ng-repeat="button in buttonNames">
+                    <button class="btn  btn-success" ng-click="data.rowColor = button">{{button}}</button>
+                </span>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr><th>#</th><th>Action</th><th>Done</th></tr>
+            </thead>
+            <tr ng-repeat="item in todos" ng-class="data.rowColor"
+            ng-mouseover="handleEvent($event)">
+                <td>{{$index + 1}}</td>
+                <td>{{item.action}}</td>
+                <td ng-class="data.columnColor">
+                    <span ng-hide="item.complete">Incomplete</span>
+                    <span ng-show="item.complete">Done</span>
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+</body>
+</html>

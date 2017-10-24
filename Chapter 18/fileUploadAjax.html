@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../Chapter9/bootstrap.css" />
+    <link rel="stylesheet" href="../Chapter9/bootstrap-theme.css" />
+    <link rel="stylesheet" href="animate.min.css" />
+    <script src="../Chapter9/angular.js"></script>
+    <script>
+        angular.module("exampleApp", [])
+            .controller("defaultCtrl",function ($scope , $http) {
+                $scope.data = {
+                    name : "",
+                    fileImg : ""
+                }
+                $scope.Send = function () {
+                    $scope.data.fileImg = document.getElementById('input').files[0];
+                    var formData = new FormData();
+                    formData.append("file", $scope.data.fileImg)
+                    $http({withCredentials: true, headers: { 'Content-Type': undefined },transformRequest: angular.identity ,url: "/UserStore/News/GetNexNews", method: "POST", data: { "name": $scope.data.name, "fileImg": formData } }).then(function (response) {
+                        //result
+                    });
+                }
+            })
+
+
+    </script>
+
+    <!--<script src="controllers.js"></script>-->
+</head>
+<body ng-app="exampleApp" >
+    <div class="row" ng-controller="defaultCtrl">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label>نام</label>
+                <input class="form-control" type="text" ng-model="data.name" />
+            </div>
+            <div class="form-group">
+                <label>تصویر</label>
+                <input class="form-control" id="input" type="file"  />
+            </div>
+            <div class="form-group">
+                <button type="button" ng-click="Send()">ثبت</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

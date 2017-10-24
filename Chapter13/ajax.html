@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../Chapter9/bootstrap.css" />
+    <link rel="stylesheet" href="../Chapter9/bootstrap-theme.css" />
+    <link rel="stylesheet" href="animate.min.css" />
+    <script src="../Chapter9/angular.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/sunny/jquery-ui.min.css" />
+    <script>
+
+    $(document).ready(function () {
+        $('#jqui button').button().click(function (e) {
+            $.getJSON( "test.json", function( data ) {
+                console.log(data)
+                angular.element(angularRegion).scope().$apply('dataSource = data;');
+            });
+
+        });
+
+
+    });
+    var app = angular.module("exampleApp3",[])
+        .controller("simpleCtrl",function ($scope,$http) {
+            $scope.buttonEnabled = true;
+            $scope.type="family"
+            $scope.dataSource = [{
+                "Name":"Ghazal",
+                "Family":"Rezayi",
+                "City":"Shahreza"
+            }];
+            $scope.typeArray =["family","friends"]
+            $scope.clickCounter = 0;
+            $scope.handleClick = function (data) {
+                if($scope.type == "family"){
+                    $http.get("family.json")
+                        .then(function(response) {
+                            $scope.dataSource = response.data;
+                        });
+                }else{
+                    $http.get("friends.json")
+                        .then(function(response) {
+                            $scope.dataSource = response.data;
+                        });
+                }
+            }
+            $scope.typeChange = function (e) {
+               var Dtype = $(e.target).html();
+               $scope.type = Dtype;
+            }
+        })
+    </script>
+
+    <!--<script src="controllers.js"></script>-->
+</head>
+<body  ng-app="exampleApp3">
+    <div id="angularRegion" class="well" ng-controller="simpleCtrl">
+        <h4>AngularJS</h4>
+        <div  ng-repeat="item in typeArray" class="btn-group">
+            <button class="btn btn-danger" ng-click="typeChange($event)">{{item}}</button>
+        </div>
+        <p>{{type}}</p>
+        <div ng-repeat="item in dataSource" ng-show="dataSource.length">
+            <div class="animated fadeInLeft">
+                <p>{{item.Name}}</p>
+                <p>{{item.Family}}</p>
+                <p>{{item.City}}</p>
+            </div>
+        </div>
+        <p class="alert alert-danger" ng-hide="dataSource.length">اطلاعاتی موجود نیست</p>
+        <button ng-click="handleClick()" type="button">Click</button>
+    </div>
+    <div id="jqui" class="well">
+        <h4>Jquery UI</h4>
+        <button > Click Me!</button>
+    </div>
+</body>
+</html>
