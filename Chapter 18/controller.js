@@ -1,7 +1,7 @@
 angular.module("exampleApp", [])
     .controller("defaultCtrl", function($scope) {
         $scope.init = function () {
-            $scope.data2 = [{ "name": "محمد علی", "uid": "123" }, { "name": "مرتضی", "uid": "124" }, { "name": "محمد", "uid": "125" }
+            $scope.data2 = [{ "name": "محمد رضا", "uid": "123" }, { "name": "مرتضی", "uid": "124" }, { "name": "محمد", "uid": "125" }
             ];
             $("#tags").autocomplete({
                 source: function (request, response) {
