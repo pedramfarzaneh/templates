@@ -1,0 +1,20 @@
+
+<div class="well animated fadeInLeft">
+    <button class="btn  btn-block" type="button" ng-click="newCity()">شهر جدید</button>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>اسم</th>
+                <th>عملیات</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in citieList">
+            <td>{{item}}</td>
+            <td>
+                <button type="button" class="btn btn-success" ng-click="editCity(item)">ویرایش</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
