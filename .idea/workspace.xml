@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7e533237-4bcf-4247-b5d9-9b43ec774388" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Chapter 18/controller.js" afterPath="$PROJECT_DIR$/Chapter 18/controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Chapter 18/index.html" afterPath="$PROJECT_DIR$/Chapter 18/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Chapter 18/mainView.html" afterPath="$PROJECT_DIR$/Chapter 18/mainView.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -328,7 +325,7 @@
       <workItem from="1508854228302" duration="1310000" />
       <workItem from="1508937333509" duration="4096000" />
       <workItem from="1508953875959" duration="876000" />
-      <workItem from="1509109892914" duration="7347000" />
+      <workItem from="1509109892914" duration="7396000" />
     </task>
     <task id="LOCAL-00001" summary="تغییر جدید در کنترلر">
       <created>1508835314401</created>
@@ -358,11 +355,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509112745480</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="سرویس و سرچ در آرایه از اشیا">
+      <created>1509118773508</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1509118773508</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105426000" />
+    <option name="totallyTimeSpent" value="105475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -441,7 +445,8 @@
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
     <MESSAGE value="تغییر جدید در کنترلر" />
     <MESSAGE value="تغییر جدید در کنترلرتغییر جدید در کنترلر" />
-    <option name="LAST_COMMIT_MESSAGE" value="تغییر جدید در کنترلرتغییر جدید در کنترلر" />
+    <MESSAGE value="سرویس و سرچ در آرایه از اشیا" />
+    <option name="LAST_COMMIT_MESSAGE" value="سرویس و سرچ در آرایه از اشیا" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
